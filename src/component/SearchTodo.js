@@ -18,24 +18,23 @@ class SearchTodo extends Component {
 
   handleSubmit = (e) => {
     //Begin Here
-    e.preventDefault();  
-    // HTTP Client to send a GET request
-    Axios({
-      method: "GET",
-      url: "http://localhost:8080/items/search",
-      headers: {
-        "Content-Type": "application/json" 
-      },
-      params: {
-        taskname: this.state.content
-      }
-    }).then(res => {
-      this.setState({
-        tmpdata: JSON.stringify(res.data),
-      });
-      // uncomment to see from the browser console log what is returned 
-      //console.log(this.state.tmpdata);
-    });
+                e.preventDefault();  
+            // HTTP Client to send a GET request
+            Axios({
+            method: "GET",
+            url: "http://localhost:8080/get/searchitem",
+            headers: {
+                "Content-Type": "application/json" 
+            },
+            params: {
+                taskname: this.state.content
+            }
+            }).then(res => {
+            this.setState({
+                tmpdata: JSON.stringify(res.data),
+                });
+        
+            });
   };
   
   render() {
